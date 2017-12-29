@@ -17,5 +17,12 @@ public class HelloController {
 	public String hello(){
 		return "hello";
 	}
-
+	//默认使用json返回，Spring boot 默认使用的json解析框架是jackson
+	@RequestMapping("/getDemo")
+	public Demo getDemo(){
+		Demo demo = new Demo();
+		demo.setId(1001);
+		demo.setName("TOm");
+		return demo;
+	}
 }
