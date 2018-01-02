@@ -31,10 +31,68 @@
 <!--         <version></version> -->
     </dependency>
     <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.15</version>
+	</dependency>
+<!--     还是第三方的dev tools 靠谱 -->
+    <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+           <scope>true</scope>
+	</dependency>	
+    
+    
+    
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+<!--   构建节点 -->
+  <build>
+  	<plugins>
+<!--springloaded  hot deploy， 热部署 不好使。 -->  
+<!--   	<plugin> -->
+<!--   		<groupId>org.springframework.boot</groupId> -->
+<!--    		<artifactId>spring-boot-maven-plugin </artifactId> -->
+<!-- 	    <dependencies>   -->
+<!--          <dependency>   -->
+<!--              <groupId>org.springframework</groupId>   -->
+<!--              <artifactId>springloaded</artifactId>   -->
+<!--              <version>1.2.4.RELEASE</version> -->
+<!--          </dependency>   -->
+<!--        </dependencies>   -->
+<!--        <executions>   -->
+<!--           <execution>   -->
+<!--               <goals>   -->
+<!--                   <goal>repackage</goal>   -->
+<!--               </goals>   -->
+<!--               <configuration>   -->
+<!--                   <classifier>exec</classifier>   -->
+<!--               </configuration>   -->
+<!--           </execution>   -->
+<!-- 	   </executions> -->
+<!-- 	</plugin> -->
+
+	    <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+          		<!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                <fork>true</fork>
+            </configuration>
+        </plugin>
+	</plugins>
+
+
+  </build>
+  
+  
+  
+  
+  
 </project>
